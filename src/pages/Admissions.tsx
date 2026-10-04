@@ -39,6 +39,7 @@ export default function Admissions() {
     setLoading(false);
   };
   useEffect(() => { load(); }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { if (params.get('new') === '1' && canManage) setShowNew(true); }, []);
 
   const freeBeds = beds.filter((b) => b.status === 'Available');

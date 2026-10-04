@@ -286,6 +286,29 @@ CREATE TABLE IF NOT EXISTS public.notifications (
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
+-- 17b. HOSPITAL DOCUMENTS
+-- Stores official hospital compliance documents with expiry tracking.
+-- Files are stored in Supabase Storage bucket: hospital-documents
+CREATE TABLE IF NOT EXISTS public.hospital_documents (
+    id SERIAL PRIMARY KEY,
+    title TEXT NOT NULL,
+    document_type TEXT NOT NULL DEFAULT 'Other',
+    description TEXT,
+    expiry_date DATE,
+    uploaded_by TEXT NOT NULL,
+    uploaded_by_role TEXT,
+    file_name TEXT,
+    file_size BIGINT,
+    file_mime TEXT,
+    file_path TEXT,                      -- Path inside the Supabase storage bucket
+    status TEXT NOT NULL DEFAULT 'Active', -- Active | Expiring Soon | Expired
+    notified_7d BOOLEAN DEFAULT FALSE,   -- True once 7-day expiry notification sent
+    notified_1d BOOLEAN DEFAULT FALSE,   -- True once 1-day expiry notification sent
+    notified_expired BOOLEAN DEFAULT FALSE, -- True once expiry-day notification sent
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
 -- 18. AUDIT LOGS
 CREATE TABLE IF NOT EXISTS public.audit_logs (
     id SERIAL PRIMARY KEY,
@@ -349,7 +372,7 @@ DECLARE
         'departments', 'doctors', 'patients', 'staff', 'beds', 'admissions',
         'appointments', 'emergency_cases', 'prescriptions', 'medicines',
         'inventory', 'inventory_categories', 'lab_tests', 'radiology', 'invoices', 'insurance_claims',
-        'vitals', 'notifications', 'audit_logs', 'approvals', 'attendance', 'staff_profiles'
+        'vitals', 'notifications', 'audit_logs', 'approvals', 'attendance', 'staff_profiles', 'hospital_documents'
     ];
 BEGIN
     FOREACH tbl IN ARRAY tbls LOOP

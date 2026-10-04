@@ -209,6 +209,7 @@ function DoctorDash() {
     } catch { /* ignore */ }
     setLoading(false);
   };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { load(); }, []);
 
   const waiting = appts.filter((a) => ['Scheduled', 'Confirmed', 'Checked-in'].includes(a.status));
@@ -862,6 +863,7 @@ function PatientDash() {
       } catch { /* ignore */ }
       setLoading(false);
     })();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pid]);
 
   if (loading) return <div className="space-y-4"><SkeletonCards /></div>;

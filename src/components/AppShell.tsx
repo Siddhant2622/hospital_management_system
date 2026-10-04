@@ -4,7 +4,7 @@ import {
   LayoutDashboard, Users, CalendarDays, BedDouble, Pill, FlaskConical, Receipt,
   Siren, ClipboardList, ScanLine, Package, ShieldCheck, BarChart3, Bell, Settings,
   Search, Menu, X, Sun, Moon, LogOut, ChevronDown, HeartPulse, UserRound, Stethoscope,
-  FileText, Wallet, Activity, Clock, CheckCircle2,
+  FileText, Wallet, Activity, Clock, CheckCircle2, FolderOpen,
 } from 'lucide-react';
 import { useToast } from '../contexts/ToastContext';
 import Logo from '../components/Logo';
@@ -36,6 +36,7 @@ const NAV_BY_ROLE: Record<Role, NavItem[]> = {
     { to: '/app/insurance', label: 'Insurance', icon: <Wallet size={18} /> },
     { to: '/app/reports', label: 'Reports', icon: <BarChart3 size={18} /> },
     { to: '/app/audit', label: 'Audit Log', icon: <ShieldCheck size={18} /> },
+    { to: '/app/reception-documents', label: 'Documents', icon: <FolderOpen size={18} /> },
   ],
   Doctor: [
     { to: '/app', label: 'My Day', icon: <LayoutDashboard size={18} />, end: true },
@@ -65,6 +66,7 @@ const NAV_BY_ROLE: Record<Role, NavItem[]> = {
     { to: '/app/beds', label: 'Beds & Rooms', icon: <BedDouble size={18} /> },
     { to: '/app/billing', label: 'Billing', icon: <Receipt size={18} /> },
     { to: '/app/emergency', label: 'Emergency', icon: <Siren size={18} /> },
+    { to: '/app/reception-documents', label: 'Documents', icon: <FolderOpen size={18} /> },
   ],
   Pharmacist: [
     { to: '/app', label: 'Dispensary', icon: <LayoutDashboard size={18} />, end: true },
@@ -121,6 +123,7 @@ export default function AppShell() {
       setNotifs(Array.isArray(d) ? d : []);
     } catch { /* silent */ }
   };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { fetchNotifs(); const t = setInterval(fetchNotifs, 45000); return () => clearInterval(t); }, [role]);
 
   useEffect(() => {

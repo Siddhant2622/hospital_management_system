@@ -4,7 +4,7 @@ import { CalendarPlus, Pill, FlaskConical, Receipt, FileText, Stethoscope } from
 import { get, post, put, fmtDate, fmtTime, inr, todayISO } from '../lib/api';
 import { useAuth } from '../contexts/AuthContext';
 import { useToast } from '../contexts/ToastContext';
-import { Modal, Field, Badge, Empty, LoadError, SkeletonRows, SectionHead } from '../components/ui';
+import { Modal, Field, Badge, Empty, SkeletonRows, SectionHead } from '../components/ui';
 
 function useMyPatient() {
   const { user } = useAuth();
@@ -45,6 +45,7 @@ export function MyAppointments() {
     } catch { /* ignore */ }
     setLoading(false);
   };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { if (ready) load(); }, [pid, ready]);
 
   const book = async () => {
@@ -120,7 +121,6 @@ export function MyAppointments() {
 
 export function MyRecords() {
   const { pid, ready } = useMyPatient();
-  const nav = useNavigate();
   const [data, setData] = useState<any>({ appts: [], rx: [], labs: [], scans: [], vitals: [] });
   const [loading, setLoading] = useState(true);
 

@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Plus } from 'lucide-react';
 import { get, post, put, todayISO, fmtTime } from '../lib/api';
 import { useAuth } from '../contexts/AuthContext';
@@ -12,7 +11,6 @@ const STAGES = ['Arrived', 'Triage', 'Under Treatment', 'Observation', 'Admitted
 export default function Emergency() {
   const { user } = useAuth();
   const { toast } = useToast();
-  const nav = useNavigate();
   const [rows, setRows] = useState<any[]>([]);
   const [beds, setBeds] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);

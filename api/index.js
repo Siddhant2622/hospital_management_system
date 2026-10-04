@@ -5,6 +5,7 @@ import audit from './_handlers/audit.js';
 import beds from './_handlers/beds.js';
 import dashboard from './_handlers/dashboard.js';
 import departments from './_handlers/departments.js';
+import documents from './_handlers/documents.js';
 import doctors from './_handlers/doctors.js';
 import emergency from './_handlers/emergency.js';
 import insurance from './_handlers/insurance.js';
@@ -29,6 +30,7 @@ const routes = {
   beds,
   dashboard,
   departments,
+  documents,
   doctors,
   emergency,
   insurance,

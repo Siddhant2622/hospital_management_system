@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
 import { get, todayISO, fmtTime, inr } from '../lib/api';
-import { Badge, Empty, LoadError, SectionHead, Stat, Meter } from '../components/ui';
+import { Empty, LoadError, SectionHead, Stat, Meter } from '../components/ui';
 import { Printer } from 'lucide-react';
 
 export default function Reports() {
   const [d, setD] = useState<any>(null);
   const [invoices, setInvoices] = useState<any[]>([]);
-  const [depts, setDepts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState('');
   const [revFilter, setRevFilter] = useState('Monthly');
@@ -15,10 +14,9 @@ export default function Reports() {
     (async () => {
       setLoading(true); setErr('');
       try {
-        const [dash, inv, dp] = await Promise.all([get(`/api/dashboard?date=${todayISO()}`), get('/api/invoices'), get('/api/departments')]);
+        const [dash, inv] = await Promise.all([get(`/api/dashboard?date=${todayISO()}`), get('/api/invoices')]);
         setD(dash);
         setInvoices(Array.isArray(inv) ? inv : []);
-        setDepts(Array.isArray(dp) ? dp : []);
       } catch (e: any) { setErr(e.message); }
       setLoading(false);
     })();

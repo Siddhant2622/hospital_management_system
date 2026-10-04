@@ -61,6 +61,7 @@ export async function api<T = any>(path: string, options?: RequestInit & { json?
       if (path.includes('/departments')) return ALL_HOSPITAL_DEPARTMENTS.map((name, i) => ({ id: i + 1, name, status: 'Available' })) as any;
       if (path.includes('/beds')) return [] as any;
       if (path.includes('/vitals')) return [] as any;
+      if (path.includes('/documents')) return [] as any;
       return [] as any;
     }
     

@@ -25,3 +25,8 @@ dist-ssr
 .vite-source-tags.js
 .vercel
 scratch/
+
+# Environment variables — NEVER commit secrets
+.env
+.env.local
+.env.*.local

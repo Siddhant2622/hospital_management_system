@@ -30,6 +30,7 @@ import Notifications from './pages/Notifications';
 import Settings from './pages/Settings';
 import { PrescriptionDoc, InvoiceDoc, LabReportDoc } from './pages/Documents';
 import { MyAppointments, MyRecords, MyPrescriptions, MyLab, MyBills } from './pages/PatientPortal';
+import ReceptionDocuments from './pages/ReceptionDocuments';
 import type { JSX } from 'react';
 
 function handleRecoveryRedirect() {
@@ -102,6 +103,7 @@ export default function App() {
                 <Route path="audit" element={<RoleGuard allow={['Admin']}><Audit /></RoleGuard>} />
                 <Route path="notifications" element={<Notifications />} />
                 <Route path="settings" element={<Settings />} />
+                <Route path="reception-documents" element={<RoleGuard allow={['Admin', 'Receptionist']}><ReceptionDocuments /></RoleGuard>} />
                 <Route path="prescription/:id" element={<PrescriptionDoc />} />
                 <Route path="invoice/:id" element={<InvoiceDoc />} />
                 <Route path="lab-report/:id" element={<LabReportDoc />} />

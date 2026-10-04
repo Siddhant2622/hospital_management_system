@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Package, Plus, Minus, Truck, Tag, Edit2, Trash2, RotateCcw, Check, X, Search, AlertCircle, Layers } from 'lucide-react';
+import { Package, Plus, Minus, Truck, Tag, Edit2, Trash2, RotateCcw, Check, X, Search, AlertCircle } from 'lucide-react';
 import { get, post, put, del } from '../lib/api';
 import { useAuth } from '../contexts/AuthContext';
 import { useToast } from '../contexts/ToastContext';

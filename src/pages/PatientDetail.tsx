@@ -52,6 +52,7 @@ export default function PatientDetail() {
     } catch (e: any) { setErr(e.message); }
     setLoading(false);
   };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { load(); }, [id]);
 
   const save = async () => {

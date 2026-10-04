@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { Plus, Receipt, Trash2 } from 'lucide-react';
 import { get, post, put, fmtDate, inr, todayISO } from '../lib/api';
@@ -39,6 +39,7 @@ export default function Billing() {
     setLoading(false);
   };
   useEffect(() => { load(); }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { if (params.get('new') === '1' && canBill) setShowNew(true); }, []);
 
   const shown = rows.filter((r) => !statusF || r.status === statusF);

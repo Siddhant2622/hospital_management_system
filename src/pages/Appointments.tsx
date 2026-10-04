@@ -46,6 +46,7 @@ export default function Appointments() {
     setLoading(false);
   };
   useEffect(() => { load(); }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { if (params.get('new') === '1') setShowNew(true); }, []);
 
   const dayRows = useMemo(() => {

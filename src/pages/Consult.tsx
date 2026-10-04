@@ -4,7 +4,7 @@ import { HeartPulse, FlaskConical, ScanLine, Pill, CalendarPlus, FileText, Save 
 import { get, post, put, todayISO, fmtDate, fmtTime } from '../lib/api';
 import { useAuth } from '../contexts/AuthContext';
 import { useToast } from '../contexts/ToastContext';
-import { Field, Badge, SectionHead, Avatar, Empty } from '../components/ui';
+import { Field, SectionHead, Avatar, Empty } from '../components/ui';
 
 const TESTS = ['Complete Blood Count (CBC)', 'Blood Sugar (Fasting)', 'HbA1c', 'Lipid Profile', 'Liver Function Test', 'Kidney Function Test', 'Thyroid Profile (T3/T4/TSH)', 'Urine Routine', 'ECG', 'CRP'];
 const SCANS = ['X-Ray', 'CT Scan', 'MRI', 'Ultrasound', 'Mammography', 'DEXA'];

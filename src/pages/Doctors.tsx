@@ -4,7 +4,7 @@ import { Plus, Stethoscope, Edit2, Trash2 } from 'lucide-react';
 import { get, post, put, del } from '../lib/api';
 import { useAuth } from '../contexts/AuthContext';
 import { useToast } from '../contexts/ToastContext';
-import { Modal, Field, Badge, Empty, LoadError, SkeletonRows, SectionHead, Avatar } from '../components/ui';
+import { Modal, Field, Badge, Empty, LoadError, SectionHead, Avatar } from '../components/ui';
 import { CLINICAL_DEPARTMENTS, ALL_HOSPITAL_DEPARTMENTS } from '../lib/departments';
 
 export default function Doctors() {

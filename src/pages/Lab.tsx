@@ -38,6 +38,7 @@ export default function Lab() {
     setLoading(false);
   };
   useEffect(() => { load(); }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { if (params.get('new') === '1') setShowNew(true); }, []);
 
   const shown = useMemo(() => rows.filter((r) => stage === 'All' || r.status === stage || (stage === 'Verified' && r.status === 'Completed')), [rows, stage]);

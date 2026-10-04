@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Plus, Search, CheckCircle2, ShieldCheck, Mail, Phone, Edit2, Trash2, KeyRound, Eye, EyeOff, Lock } from 'lucide-react';
+import { Plus, Search, ShieldCheck, Mail, Trash2, KeyRound, Eye, EyeOff, Lock } from 'lucide-react';
 import { get, post, put, del } from '../lib/api';
 import { useAuth } from '../contexts/AuthContext';
 import { useToast } from '../contexts/ToastContext';
